@@ -5,7 +5,6 @@ import { deleteBook } from './BooksSlice';
 
 const BooksView = () => {
     const books = useSelector((state) => state.booksReducer.books)
-    console.log(books);
     const dispatch = useDispatch()
 
     const handleDelete = id => {
@@ -39,7 +38,7 @@ const BooksView = () => {
                             <td>{generic.length < 2 ? generic : generic.map(b=> <span key={b}>{b},</span>)}</td>
                             <td>{country}</td>
                             <td>
-                                <Link to='edit-book'><button>Edit</button></Link>
+                                <Link to='/edit-book' state={{id, title, author, price, available, generic, country}}><button>Edit</button></Link>
                                 <button onClick={()=>handleDelete(id)}>Delete</button>
                             </td>
                         </tr>

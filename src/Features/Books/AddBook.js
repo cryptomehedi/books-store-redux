@@ -79,8 +79,8 @@ const AddBook = () => {
                 <div className="form-field">
                     <label htmlFor="title">Country: </label>
                     <select className="border p-2 rounded-xl border-blue-300" name="country" id="country">
-                            <option className='p-5 bg-slate-300' value="native">Native</option>
-                            <option className='p-5 bg-slate-300' value="foreigner">Foreigner</option>
+                            <option value="native">Native</option>
+                            <option value="foreigner">Foreigner</option>
                         </select>
                 </div>
 
