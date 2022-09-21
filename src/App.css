@@ -71,8 +71,12 @@ button:hover {
 .form-field {
   margin: 1rem;
 }
-input {
+.input-group {
   width: 20rem;
+  padding: 0.2rem;
+}
+.input-radio {
+  width: 2rem;
   padding: 0.2rem;
 }
 

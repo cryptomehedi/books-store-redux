@@ -1,22 +1,31 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteBook } from './BooksSlice';
 
 const BooksView = () => {
     const books = useSelector((state) => state.booksReducer.books)
     console.log(books);
+    const dispatch = useDispatch()
+
+    const handleDelete = id => {
+        dispatch(deleteBook(id))
+    }
     return (
         <div>
             <h2>List of books</h2>
             <table>
                 <thead>
-                    <th>SL</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                    <th>Available</th>
-                    <th>Generic</th>
-                    <th>Country</th>
-                    <th>Actions</th>
+                    <tr>
+                        <th>SL</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Available</th>
+                        <th>Generic</th>
+                        <th>Country</th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {books && books.map((book, i) =>{
@@ -27,11 +36,11 @@ const BooksView = () => {
                             <td>{author}</td>
                             <td>{price}</td>
                             <td>{available}</td>
-                            <td>{generic}</td>
+                            <td>{generic.length < 2 ? generic : generic.map(b=> <span key={b}>{b},</span>)}</td>
                             <td>{country}</td>
                             <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <Link to='edit-book'><button>Edit</button></Link>
+                                <button onClick={()=>handleDelete(id)}>Delete</button>
                             </td>
                         </tr>
                     })}
