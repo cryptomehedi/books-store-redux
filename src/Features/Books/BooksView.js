@@ -30,7 +30,7 @@ const BooksView = () => {
                     {books && books.map((book, i) =>{
                         const {id , title, author, price, available, country,generic} = book;
                         return <tr key={i}>
-                            <td>{id}</td>
+                            <td>{i+1}</td>
                             <td>{title}</td>
                             <td>{author}</td>
                             <td>{price}</td>
