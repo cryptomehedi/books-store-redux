@@ -10,19 +10,17 @@ const EditBook = () => {
     const navigate = useNavigate()
 
     const book = location.state
-    const [id, setId] = useState(book.id)
+    const [id] = useState(book.id)
     const [title, setTitle] = useState(book.title)
     const [author, setAuthor] = useState(book.author)
     const [price, setPrice] = useState(book.price)
     const [available, setAvailable] = useState(book.available)
-    const [generic, setGeneric] = useState(book.generic)
+    const [generic] = useState(book.generic)
     const [country, setCountry] = useState(book.country)
 
     
-    // console.log(available);
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(country)
         const a = e.target.a.checked
         const b = e.target.b.checked
         const c = e.target.c.checked
@@ -88,7 +86,7 @@ const EditBook = () => {
                     </select>
                 </div>
 
-                <button type="submit">Add Book</button>
+                <button type="submit">Update</button>
             </form>
         </div>
     );

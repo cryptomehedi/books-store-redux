@@ -6,7 +6,7 @@ import { addBook } from './BooksSlice';
 const AddBook = () => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
-    const [price, setPrice] = useState(0)
+    // const [price, setPrice] = useState(0)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -15,6 +15,7 @@ const AddBook = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const price = parseInt(e.target.price.value)
         const available = e.target.available.value || 'no'
         const a = e.target.a.checked
         const b = e.target.b.checked
@@ -55,7 +56,7 @@ const AddBook = () => {
                 </div>
                 <div className="form-field">
                     <label htmlFor="price">Price: </label>
-                    <input className="input-group" type="number" name="price" id="price" defaultValue={price} onChange={e => setPrice(e.target.value)} required />
+                    <input className="input-group" type="number" name="price" id="price"  required />
                 </div>
                 <div className="form-field">
                     <label htmlFor="available">Available: </label>
